@@ -4,30 +4,29 @@ const employee = {
   };
   
   // Non-destructive update
-  function updateEmployee(employeeObj, field, newValue) {
-    const updatedEmployee = {
-      ...employeeObj,
-      [field]: newValue
+  function updateEmployeeWithKeyAndValue(employee, key, value) {
+    return {
+      ...employee,
+      [key]: value
     };
-    return updatedEmployee;
   }
   
   // Destructive update
-  function overwriteEmployeeInfo(employeeObj, field, newValue) {
-    employeeObj[field] = newValue;
-    return employeeObj;
+  function destructivelyUpdateEmployeeWithKeyAndValue(employee, key, value) {
+    employee[key] = value;
+    return employee;
   }
   
   // Non-destructive delete
-  function removeFieldSafely(emp, fieldToRemove) {
-    const tempEmp = { ...emp };
-    delete tempEmp[fieldToRemove];
-    return tempEmp;
+  function deleteFromEmployeeByKey(employee, key) {
+    const newEmployee = { ...employee };
+    delete newEmployee[key];
+    return newEmployee;
   }
   
   // Destructive delete
-  function stripFieldFromOriginal(emp, fieldToStrip) {
-    delete emp[fieldToStrip];
-    return emp;
+  function destructivelyDeleteFromEmployeeByKey(employee, key) {
+    delete employee[key];
+    return employee;
   }
-  // Write your solution in this file!
+  
